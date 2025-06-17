@@ -524,17 +524,12 @@ section {
 
     /* Skills Section */
     .skills-container {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 1.5rem;
-        align-items: center;
-        width: 100%;
     }
 
     .skills-box {
         width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
     }
 
     /* Projects Section */
@@ -545,17 +540,13 @@ section {
 
     /* Designs Section */
     .design-grid {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 1.5rem;
-        align-items: center;
-        width: 100%;
     }
 
     .design-item {
         width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
+        margin-bottom: 1.5rem;
     }
 
     /* Home Section Layout */
