@@ -524,7 +524,12 @@ section {
 
     /* Skills Section */
     .skills-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .skills-box {
+        width: 100%;
     }
 
     /* Projects Section */
@@ -535,6 +540,19 @@ section {
     /* Designs Section */
     .design-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Home Section Buttons */
+    .btn-box {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+        order: -1;
+    }
+
+    .social-links {
+        order: 1;
     }
 }
 
