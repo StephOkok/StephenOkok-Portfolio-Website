@@ -534,12 +534,19 @@ section {
 
     /* Projects Section */
     .projects-container {
-        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     /* Designs Section */
     .design-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .design-item {
+        width: 100%;
+        margin-bottom: 1.5rem;
     }
 
     /* Home Section Buttons */
