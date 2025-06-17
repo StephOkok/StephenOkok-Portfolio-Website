@@ -549,17 +549,27 @@ section {
         margin-bottom: 1.5rem;
     }
 
+    /* Home Section Layout */
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
     /* Home Section Buttons */
     .btn-box {
         display: flex;
         flex-direction: column;
         gap: 1rem;
         margin-top: 2rem;
-        order: -1;
     }
 
+    /* Social Links */
     .social-links {
-        order: 1;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
     }
 }
 
