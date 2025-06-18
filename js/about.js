@@ -54,8 +54,48 @@ function animateStats() {
 // Add scroll event listener
 window.addEventListener('scroll', checkInView);
 
-// Initial check
+// Initial check and start animations
 checkInView();
+
+// Add animation only once for each stat card
+statCards.forEach(card => {
+    const number = card.querySelector('h4');
+    let hasAnimated = false;
+    
+    function checkAndAnimate() {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0 && !hasAnimated) {
+            hasAnimated = true;
+            animateStats(card);
+        }
+    }
+    
+    // Check on scroll and initial load
+    window.addEventListener('scroll', checkAndAnimate);
+    checkAndAnimate();
+});
+
+// Modified animateStats to accept a specific card
+function animateStats(card) {
+    const number = card.querySelector('h4');
+    const target = parseInt(number.textContent);
+    const duration = 2000; // 2 seconds
+    const step = target / (duration / 16); // 16ms per frame
+    
+    let current = 0;
+    
+    function increment() {
+        current += step;
+        if (current < target) {
+            number.textContent = Math.floor(current);
+            requestAnimationFrame(increment);
+        } else {
+            number.textContent = target;
+        }
+    }
+    
+    increment();
+}
 
 // Animate stats when they come into view
 const observer = new IntersectionObserver((entries) => {
