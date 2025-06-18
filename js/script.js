@@ -125,3 +125,55 @@ function randomRotate() {
 
 // Add random rotation every few seconds
 setInterval(randomRotate, 5000);
+
+// About section animations
+const statCards = document.querySelectorAll('.stat-card');
+const aboutDetails = document.querySelectorAll('.detail-item');
+const featureItems = document.querySelectorAll('.feature-item');
+
+// Add animation classes when elements are in viewport
+function checkInView() {
+    statCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            card.classList.add('animate');
+            // Start counter animation when stats are in view
+            const number = card.querySelector('h4');
+            const target = parseInt(number.textContent);
+            const duration = 2000; // 2 seconds
+            const step = target / (duration / 16); // 16ms per frame
+            
+            let current = 0;
+            
+            function increment() {
+                current += step;
+                if (current < target) {
+                    number.textContent = Math.floor(current);
+                    requestAnimationFrame(increment);
+                } else {
+                    number.textContent = target;
+                }
+            }
+            
+            increment();
+        }
+    });
+
+    aboutDetails.forEach(detail => {
+        const rect = detail.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            detail.classList.add('animate');
+        }
+    });
+
+    featureItems.forEach(feature => {
+        const rect = feature.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            feature.classList.add('animate');
+        }
+    });
+}
+
+// Check viewport on scroll and load
+window.addEventListener('scroll', checkInView);
+window.addEventListener('load', checkInView);
